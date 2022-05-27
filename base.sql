@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 23 2022 г., 19:22
+-- Время создания: Май 27 2022 г., 14:27
 -- Версия сервера: 8.0.24
 -- Версия PHP: 8.0.14
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `evlnk`
+-- База данных: `links`
 --
 
 -- --------------------------------------------------------
@@ -31,7 +31,7 @@ CREATE TABLE `ban` (
   `id` int NOT NULL,
   `ip` char(15) NOT NULL,
   `lastlink` datetime NOT NULL,
-  `addedlinks` int DEFAULT NULL,
+  `addedlinks` int NOT NULL,
   `banned` int NOT NULL DEFAULT '0',
   `bantime` char(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -44,7 +44,7 @@ CREATE TABLE `ban` (
 
 CREATE TABLE `url` (
   `id` int NOT NULL,
-  `input_link` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `input_link` varchar(450) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `short_link` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `user_id` int NOT NULL,
   `date_time` datetime NOT NULL
@@ -64,7 +64,9 @@ ALTER TABLE `ban`
 -- Индексы таблицы `url`
 --
 ALTER TABLE `url`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `short_link` (`short_link`),
+  ADD UNIQUE KEY `input_link` (`input_link`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц

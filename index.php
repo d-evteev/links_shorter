@@ -17,19 +17,18 @@ $app->route();
 <body>
 
     <div class="px-4 py-5 my-5 text-center">
-        <a href="/"><img class="mx-auto mb-4" src="/img/link.png" alt="" width="72"></a>
-        <h1 class="display-5 fw-bold">Сокращатель</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">Легко и быстро сделать ссылку короткой при помощи нашего сервиса</p>
-            <div class="d-grid d-sm-flex justify-content-sm-center">
-                <form action="/add/" method="post">
-                    <div class="col-auto">
-                        <input value="<? $app->getLink(); ?>" size="40" type="text" id="inputLink" name="inputLink" class="form-control-lg border-0" placeholder="Введите длинную ссылку" required>
-                        <? echo $app->message; ?>
-                    </div>
+        <a href="/"><img class="mx-auto mb-4" src="/img/link.png" alt=""></a>
+        <h1 class="display-1 fw-bold">Сокращатель</h1>
+        <div class="col-lg-7 mx-auto">
+            <p class="display-5 my-4">Легко и быстро сделать ссылку короткой при помощи нашего сервиса</p>
+            <div class="d-grid d-sm-flex justify-content-center">
+                <form action="/add/" method="post" class="w-100">
                     <div class="col-auto mt-4">
-                        <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Сократить</button>
-                        <!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Регистрация</button> -->
+                        <input value="<? $app->getLink(); ?>" type="text" id="inputLink" name="inputLink" class="form-control-lg border-0 w-75 float-none" placeholder="Введите длинную ссылку" required>
+                    </div>
+                    <? echo $app->message; ?>
+                    <div class="col-auto mt-5">
+                        <button id='gobtn' type="submit" class="btn btn-primary btn-lg px-4 gap-3">Сократить</button>
                     </div>
                 </form>
 

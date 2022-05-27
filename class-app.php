@@ -28,7 +28,7 @@ class app
         }
     }
 
-    // Делаем короткую ссылку и пишем ее в базу
+    // Создаем короткую ссылку
     function makeShortLink($inputLink)
     {
         $symQ = rand(3, 7);
@@ -96,7 +96,7 @@ class app
     {
         switch ($type) {
             case 'success':
-                $this->message = "<p class='alert alert-success mt-2'>Короткая ссылка: <a id='shortLink' href='$text'>$text</a> <button type='button' class='btn btn-sm btn-success ms-3' id='copyBtn'>Копировать</button></p>";
+                $this->message = "<p class='alert alert-success mt-2'>Короткая ссылка: <a id='shortLink' href='$text'>$text</a> <button type='button' class='btn btn-success ms-3' id='copyBtn'>Копировать</button></p>";
                 break;
             case 'error':
                 $this->message = "<p class='alert alert-danger mt-2'>$text</p>";
